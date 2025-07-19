@@ -3,106 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Портфолио | Abdulvadud</title>
+  <title>ML Портфолио | Abdulvadud</title>
   <style>
     :root {
-      --bg-color: #0a0a0a;
-      --surface-color: #121212;
-      --surface-dark: #0d0d0d;
-      --primary-accent: #ffb400;
-      --secondary-accent: #ff9500;
-      --text-primary: rgba(255, 255, 255, 0.95);
-      --text-secondary: rgba(255, 255, 255, 0.7);
-      --border-color: rgba(255, 255, 255, 0.08);
-    }
-    
-    @font-face {
-      font-family: 'Inter';
-      src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      --bg-color: #121212;
+      --surface-color: #1e1e1e;
+      --primary-color: #03dac6;
+      --secondary-color: #bb86fc;
+      --text-primary: rgba(255, 255, 255, 0.87);
+      --text-secondary: rgba(255, 255, 255, 0.6);
     }
     
     body {
-      margin: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', 'Segoe UI', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-primary);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-    
-    ::selection {
-      background: var(--primary-accent);
-      color: black;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
     }
     
     .container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 2rem;
     }
     
     header {
-      background-color: var(--surface-dark);
-      padding: 4rem 0 3rem;
-      border-bottom: 1px solid var(--border-color);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
-      opacity: 0.3;
-    }
-    
-    .header-content {
-      position: relative;
-      z-index: 2;
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeIn 1s ease-out;
     }
     
     h1 {
+      font-size: 3rem;
       margin: 0;
-      font-size: 2.8rem;
-      font-weight: 700;
-      line-height: 1.2;
-      background: linear-gradient(45deg, var(--primary-accent), var(--secondary-accent));
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      font-weight: 800;
     }
     
     .subtitle {
       font-size: 1.2rem;
       color: var(--text-secondary);
-      margin-top: 0.8rem;
-      font-weight: 400;
+      margin-top: 0.5rem;
     }
     
-    .path {
+    .career-path {
       display: inline-block;
       margin-top: 1.5rem;
-      padding: 0.5rem 1rem;
-      background-color: rgba(255, 180, 0, 0.1);
-      color: var(--primary-accent);
-      border-radius: 6px;
-      font-size: 0.9rem;
-      border: 1px solid rgba(255, 180, 0, 0.2);
-    }
-    
-    section {
-      padding: 3rem 0;
-      border-bottom: 1px solid var(--border-color);
+      padding: 0.8rem 1.2rem;
+      background-color: rgba(187, 134, 252, 0.1);
+      border: 1px solid rgba(187, 134, 252, 0.2);
+      border-radius: 8px;
+      color: var(--secondary-color);
+      font-size: 1rem;
+      font-weight: 500;
     }
     
     h2 {
       font-size: 1.8rem;
-      margin: 0 0 1.5rem;
-      color: var(--primary-accent);
+      margin-top: 2.5rem;
+      color: var(--primary-color);
       position: relative;
       display: inline-block;
     }
@@ -113,201 +78,180 @@
       bottom: -8px;
       left: 0;
       width: 50%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary-accent), transparent);
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-color), transparent);
+      border-radius: 3px;
     }
     
-    p {
-      margin: 1rem 0;
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-    }
-    
-    .highlight {
-      color: var(--primary-accent);
-      font-weight: 500;
-    }
-    
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    
-    .project-card {
+    .card {
       background-color: var(--surface-color);
-      border-radius: 8px;
-      padding: 1.8rem;
-      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
-    .project-card:hover {
+    .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    }
+    
+    .project-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .project-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+    }
+    
+    .project-item:last-child {
+      border-bottom: none;
     }
     
     .project-icon {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: var(--primary-accent);
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: var(--secondary-color);
     }
     
-    .project-title {
-      font-size: 1.2rem;
-      margin: 0 0 0.5rem;
-      color: var(--text-primary);
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
     }
     
-    .project-desc {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      margin: 0;
+    .skill {
+      background: rgba(187, 134, 252, 0.1);
+      color: var(--secondary-color);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(187, 134, 252, 0.3);
     }
     
-    .coming-soon {
-      background-color: var(--surface-color);
-      border: 1px dashed var(--border-color);
-      border-radius: 8px;
-      padding: 3rem 2rem;
-      text-align: center;
-      color: var(--text-secondary);
-    }
-    
-    .coming-soon-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .github-link {
       display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      color: black;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(3, 218, 198, 0.3);
+    }
+    
+    .github-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(3, 218, 198, 0.4);
     }
     
     .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      margin-top: 1.5rem;
     }
     
     .contact-link {
-      display: inline-flex;
-      align-items: center;
-      color: var(--text-primary);
+      display: inline-block;
+      margin-right: 1.5rem;
+      color: var(--secondary-color);
       text-decoration: none;
-      transition: color 0.3s ease;
-      font-size: 1.1rem;
+      transition: opacity 0.3s ease;
     }
     
     .contact-link:hover {
-      color: var(--primary-accent);
+      opacity: 0.8;
     }
     
-    .contact-link::before {
-      content: '';
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background-color: var(--primary-accent);
-      border-radius: 50%;
-      margin-right: 12px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
     footer {
-      background-color: var(--surface-dark);
+      margin-top: 4rem;
       text-align: center;
-      padding: 2.5rem 0;
-      font-size: 0.9rem;
       color: var(--text-secondary);
-      border-top: 1px solid var(--border-color);
-    }
-    
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      
-      .subtitle {
-        font-size: 1.1rem;
-      }
-      
-      section {
-        padding: 2rem 0;
-      }
+      font-size: 0.9rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="header-content">
-        <h1>Abdulvadud</h1>
-        <p class="subtitle">ML-инженер | Превращаю данные в решения</p>
-        <div class="path">Python ➝ Data Analyst ➝ Data Scientist Jr ➝ Machine Learning Engineer</div>
-      </div>
+      <h1>Assalamu aleykum! , я Abdulvadud</h1>
+      <p class="subtitle">Начинающий ML-инженер, превращающий данные в решения</p>
+      <div class="career-path">Python → Data Analyst → Data Scientist Jr → Machine Learning Engineer</div>
     </header>
     
-    <section id="about">
-      <h2>🧑‍💻 Обо мне</h2>
-      <p><span class="highlight">Ассалому алейкум!</span> Меня зовут Abdulvadud. Я строю путь в IT — начиная с Python и аналитики данных, чтобы в будущем стать сильным ML-инженером.</p>
-      <p>Мой фокус — изучение реальных инструментов: <span class="highlight">Pandas, SQL, Jupyter, Flask, Sklearn</span> и т.д. Всё, что делаю — с практикой и проектами.</p>
-    </section>
+    <div class="card">
+      <h2>📁 Мои проекты</h2>
+      <ul class="project-list">
+        <li class="project-item">
+          <span class="project-icon">🔍</span>
+          <div>
+            <h3>Titanic EDA</h3>
+            <p>Исследование данных пассажиров Титаника с визуализациями</p>
+          </div>
+        </li>
+        <li class="project-item">
+          <span class="project-icon">📧</span>
+          <div>
+            <h3>Спам-классификатор</h3>
+            <p>Модель для определения спам-сообщений с точностью 98%</p>
+          </div>
+        </li>
+        <li class="project-item">
+          <span class="project-icon">🏠</span>
+          <div>
+            <h3>Предсказание цен на жильё</h3>
+            <p>Регрессионная модель для оценки стоимости недвижимости</p>
+          </div>
+        </li>
+      </ul>
+    </div>
     
-    <section id="projects">
-      <h2>📁 Проекты</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-icon">🔍</div>
-          <h3 class="project-title">Titanic EDA</h3>
-          <p class="project-desc">Полный анализ данных пассажиров Титаника с интерактивными визуализациями</p>
-        </div>
-        <div class="project-card">
-          <div class="project-icon">📧</div>
-          <h3 class="project-title">Спам-классификатор</h3>
-          <p class="project-desc">NLP модель для определения спама с точностью 98% на тестовых данных</p>
-        </div>
-        <div class="project-card">
-          <div class="project-icon">🏠</div>
-          <h3 class="project-title">Предсказание цен</h3>
-          <p class="project-desc">Регрессионная модель для оценки стоимости недвижимости с использованием XGBoost</p>
-        </div>
+    <div class="card">
+      <h2>🧠 Технологии</h2>
+      <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">Pandas</span>
+        <span class="skill">NumPy</span>
+        <span class="skill">Scikit-learn</span>
+        <span class="skill">TensorFlow</span>
+        <span class="skill">Keras</span>
+        <span class="skill">Streamlit</span>
+        <span class="skill">Matplotlib</span>
+        <span class="skill">Seaborn</span>
+        <span class="skill">SQL</span>
       </div>
-    </section>
+    </div>
     
-    <section id="skills">
-      <h2>🛠️ Навыки</h2>
-      <p>Вот технологии, с которыми я работаю:</p>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-code"></i></div>
-          <h3 class="project-title">Языки</h3>
-          <p class="project-desc">Python, SQL, Bash</p>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-chart-line"></i></div>
-          <h3 class="project-title">Анализ данных</h3>
-          <p class="project-desc">Pandas, NumPy, Matplotlib, Seaborn</p>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-brain"></i></div>
-          <h3 class="project-title">ML/DL</h3>
-          <p class="project-desc">Scikit-learn, TensorFlow, Keras, PyTorch</p>
-        </div>
-      </div>
-    </section>
-    
-    <section id="contact">
+    <div class="card">
       <h2>📬 Контакты</h2>
-      <p>Свяжитесь со мной через эти платформы:</p>
+      <p>Свяжитесь со мной через удобную для вас платформу:</p>
       <div class="contact-links">
-        <a href="https://t.me/theabdulvadud" target="_blank" class="contact-link">Telegram: @theabdulvadud</a>
-        <a href="https://instagram.com/theabdulvadud" target="_blank" class="contact-link">Instagram: @theabdulvadud</a>
-        <a href="https://github.com/Abdulvadud" target="_blank" class="contact-link">GitHub: github.com/Abdulvadud</a>
+        <a href="https://t.me/theabdulvadud" target="_blank" class="contact-link">Telegram</a>
+        <a href="https://instagram.com/theabdulvadud" target="_blank" class="contact-link">Instagram</a>
+        <a href="https://github.com/Abdulvadud" target="_blank" class="contact-link">GitHub</a>
       </div>
-    </section>
+    </div>
+    
+    <a href="https://github.com/Abdulvadud-mlengineer" target="_blank" class="github-link">
+      Следить за прогрессом на GitHub
+    </a>
+    
+    <footer>
+      © 2023 Abdulvadud | Machine Learning Portfolio
+    </footer>
   </div>
-  
-  <footer>
-    © 2025 Abdulvadud | Machine Learning Portfolio
-  </footer>
 </body>
-</html>
+  </html>
