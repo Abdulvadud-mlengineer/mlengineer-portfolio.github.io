@@ -97,26 +97,52 @@
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
     }
     
-    .project-list {
-      list-style: none;
-      padding: 0;
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
     }
     
-    .project-item {
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      display: flex;
-      align-items: center;
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
     }
     
-    .project-item:last-child {
-      border-bottom: none;
+    .project-card:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-3px);
     }
     
-    .project-icon {
-      font-size: 1.5rem;
-      margin-right: 1rem;
-      color: var(--secondary-color);
+    .project-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+    
+    .project-description {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+    
+    .project-btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      color: black;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: transform 0.2s ease;
+    }
+    
+    .project-btn:hover {
+      transform: translateY(-2px);
     }
     
     .skills {
@@ -187,36 +213,35 @@
 <body>
   <div class="container">
     <header>
-      <h1>Assalamu aleykum! , я Abdulvadud</h1>
+      <h1>Assalamu aleykum! Я Abdulvadud</h1>
       <p class="subtitle">Начинающий ML-инженер, превращающий данные в решения</p>
       <div class="career-path">Python → Data Analyst → Data Scientist Jr → Machine Learning Engineer</div>
     </header>
     
     <div class="card">
       <h2>📁 Мои проекты</h2>
-      <ul class="project-list">
-        <li class="project-item">
-          <span class="project-icon">🔍</span>
-          <div>
-            <h3>Titanic EDA</h3>
-            <p>Исследование данных пассажиров Титаника с визуализациями</p>
-          </div>
-        </li>
-        <li class="project-item">
-          <span class="project-icon">📧</span>
-          <div>
-            <h3>Спам-классификатор</h3>
-            <p>Модель для определения спам-сообщений с точностью 98%</p>
-          </div>
-        </li>
-        <li class="project-item">
-          <span class="project-icon">🏠</span>
-          <div>
-            <h3>Предсказание цен на жильё</h3>
-            <p>Регрессионная модель для оценки стоимости недвижимости</p>
-          </div>
-        </li>
-      </ul>
+      <div class="project-grid">
+        <!-- Проект 1 - Классификация ирисов -->
+        <div class="project-card">
+          <h3 class="project-title">Классификация ирисов</h3>
+          <p class="project-description">ML-модель для определения вида цветка по параметрам с точностью 96-100%</p>
+          <a href="https://github.com/Abdulvadud-MLEngineer/iris-classification-ml" class="project-btn">Посмотреть код</a>
+        </div>
+        
+        <!-- Проект 2 - Пустой (будет добавлен позже) -->
+        <div class="project-card">
+          <h3 class="project-title">Предсказание цен на дома</h3>
+          <p class="project-description">Регрессионная модель для оценки стоимости недвижимости (в разработке)</p>
+          <a href="https://github.com/Abdulvadud-MLEngineer/house-price-prediction" class="project-btn">Скоро</a>
+        </div>
+        
+        <!-- Проект 3 - Пустой (будет добавлен позже) -->
+        <div class="project-card">
+          <h3 class="project-title">Детектор спама</h3>
+          <p class="project-description">NLP-модель для классификации SMS (в разработке)</p>
+          <a href="https://github.com/Abdulvadud-MLEngineer/spam-sms-detector" class="project-btn">Скоро</a>
+        </div>
+      </div>
     </div>
     
     <div class="card">
@@ -226,12 +251,10 @@
         <span class="skill">Pandas</span>
         <span class="skill">NumPy</span>
         <span class="skill">Scikit-learn</span>
-        <span class="skill">TensorFlow</span>
-        <span class="skill">Keras</span>
-        <span class="skill">Streamlit</span>
         <span class="skill">Matplotlib</span>
         <span class="skill">Seaborn</span>
-        <span class="skill">SQL</span>
+        <span class="skill">Jupyter</span>
+        <span class="skill">Git</span>
       </div>
     </div>
     
@@ -241,11 +264,11 @@
       <div class="contact-links">
         <a href="https://t.me/theabdulvadud" target="_blank" class="contact-link">Telegram</a>
         <a href="https://instagram.com/theabdulvadud" target="_blank" class="contact-link">Instagram</a>
-        <a href="https://github.com/Abdulvadud" target="_blank" class="contact-link">GitHub</a>
+        <a href="https://github.com/Abdulvadud-MLEngineer" target="_blank" class="contact-link">GitHub</a>
       </div>
     </div>
     
-    <a href="https://github.com/Abdulvadud-mlengineer" target="_blank" class="github-link">
+    <a href="https://github.com/Abdulvadud-MLEngineer" target="_blank" class="github-link">
       Следить за прогрессом на GitHub
     </a>
     
@@ -254,4 +277,4 @@
     </footer>
   </div>
 </body>
-  </html>
+</html>
