@@ -2,22 +2,434 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ML Портфолио | Abdulvadud</title>
+  <style>
+    :root {
+      --bg-color: #121212;
+      --surface-color: #1e1e1e;
+      --primary-color: #03dac6;
+      --secondary-color: #bb86fc;
+      --text-primary: rgba(255, 255, 255, 0.87);
+      --text-secondary: rgba(255, 255, 255, 0.6);
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeIn 1s ease-out;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-color), transparent);
+      border-radius: 3px;
+    }
+    
+    .card {
+      background-color: var(--surface-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    }
+    
+    .project-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .project-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+    }
+    
+    .project-item:last-child {
+      border-bottom: none;
+    }
+    
+    .project-icon {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: var(--secondary-color);
+    }
+    
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    
+    .skill {
+      background: rgba(187, 134, 252, 0.1);
+      color: var(--secondary-color);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(187, 134, 252, 0.3);
+    }
+    
+    .github-link {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      color: black;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(3, 218, 198, 0.3);
+    }
+    
+    .github-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(3, 218, 198, 0.4);
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body style="font-family:sans-serif; background:#111; color:white; padding:20px;">
-  <h1>Привет 👋</h1>
-  <p>Я начинающий ML-инженер. Это мой путь: от Python до Machine Learning!</p>
-
-  <h2>📁 Проекты</h2>
-  <ul>
-    <li>🔍 Titanic EDA</li>
-    <li>📧 Спам-классификатор</li>
-    <li>🏠 Предсказание цен</li>
-  </ul>
-
-  <h2>🧠 Навыки</h2>
-  <p>Python · Pandas · Scikit-learn · Streamlit · ML</p>
-
-  <p>Следи за прогрессом на <a href="https://github.com/ТВОЙ_ЮЗЕРНЕЙМ/ml-portfolio" target="_blank" style="color:lightblue;">GitHub</a></p>
+<body>
+  <div class="container">
+    <header>
+      <h1>Привет, я Abdulvadud</h1>
+      <p class="subtitle">Начинающий ML-инженер, превращающий данные в решения</p>
+    </header>
+    
+    <div class="card">
+      <h2>📁 Мои проекты</h2>
+      <ul class="project-list">
+        <li class="project-item">
+          <span class="project-icon">🔍</span>
+          <div>
+            <h3>Titanic EDA</h3>
+            <p>Исследование данных пассажиров Титаника с визуализациями</p>
+          </div>
+        </li>
+        <li class="project-item">
+          <span class="project-icon">📧</span>
+          <div>
+            <h3>Спам-классификатор</h3>
+            <p>Модель для определения спам-сообщений с точностью 98%</p>
+          </div>
+        </li>
+        <li class="project-item">
+          <span class="project-icon">🏠</span>
+          <div>
+            <h3>Предсказание цен на жильё</h3>
+            <p>Регрессионная модель для оценки стоимости недвижимости</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="card">
+      <h2>🧠 Технологии</h2>
+      <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">Pandas</span>
+        <span class="skill">NumPy</span>
+        <span class="skill">Scikit-learn</span>
+        <span class="skill">TensorFlow</span>
+        <span class="skill">Keras</span>
+        <span class="skill">Streamlit</span>
+        <span class="skill">Matplotlib</span>
+        <span class="skill">Seaborn</span>
+        <span class="skill">SQL</span>
+      </div>
+    </div>
+    
+    <a href="https://github.com/ТВОЙ_ЮЗЕРНЕЙМ/ml-portfolio" target="_blank" class="github-link">
+      Следить за прогрессом на GitHub
+    </a>
+    
+    <footer>
+      © 2023 Abdulvadud | Machine Learning Portfolio
+    </footer>
+  </div>
+</body>
+</html><!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ML Портфолио | Abdulvadud</title>
+  <style>
+    :root {
+      --bg-color: #121212;
+      --surface-color: #1e1e1e;
+      --primary-color: #03dac6;
+      --secondary-color: #bb86fc;
+      --text-primary: rgba(255, 255, 255, 0.87);
+      --text-secondary: rgba(255, 255, 255, 0.6);
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeIn 1s ease-out;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-color), transparent);
+      border-radius: 3px;
+    }
+    
+    .card {
+      background-color: var(--surface-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    }
+    
+    .project-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .project-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+    }
+    
+    .project-item:last-child {
+      border-bottom: none;
+    }
+    
+    .project-icon {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: var(--secondary-color);
+    }
+    
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    
+    .skill {
+      background: rgba(187, 134, 252, 0.1);
+      color: var(--secondary-color);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(187, 134, 252, 0.3);
+    }
+    
+    .github-link {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      color: black;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(3, 218, 198, 0.3);
+    }
+    
+    .github-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(3, 218, 198, 0.4);
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Привет, я Abdulvadud</h1>
+      <p class="subtitle">Начинающий ML-инженер, превращающий данные в решения</p>
+    </header>
+    
+    <div class="card">
+      <h2>📁 Мои проекты</h2>
+      <ul class="project-list">
+        <li class="project-item">
+          <span class="project-icon">🔍</span>
+          <div>
+            <h3>Titanic EDA</h3>
+            <p>Исследование данных пассажиров Титаника с визуализациями</p>
+          </div>
+        </li>
+        <li class="project-item">
+          <span class="project-icon">📧</span>
+          <div>
+            <h3>Спам-классификатор</h3>
+            <p>Модель для определения спам-сообщений с точностью 98%</p>
+          </div>
+        </li>
+        <li class="project-item">
+          <span class="project-icon">🏠</span>
+          <div>
+            <h3>Предсказание цен на жильё</h3>
+            <p>Регрессионная модель для оценки стоимости недвижимости</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="card">
+      <h2>🧠 Технологии</h2>
+      <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">Pandas</span>
+        <span class="skill">NumPy</span>
+        <span class="skill">Scikit-learn</span>
+        <span class="skill">TensorFlow</span>
+        <span class="skill">Keras</span>
+        <span class="skill">Streamlit</span>
+        <span class="skill">Matplotlib</span>
+        <span class="skill">Seaborn</span>
+        <span class="skill">SQL</span>
+      </div>
+    </div>
+    
+    <a href="https://github.com/ТВОЙ_ЮЗЕРНЕЙМ/ml-portfolio" target="_blank" class="github-link">
+      Следить за прогрессом на GitHub
+    </a>
+    
+    <footer>
+      © 2023 Abdulvadud | Machine Learning Portfolio
+    </footer>
+  </div>
 </body>
 </html>
