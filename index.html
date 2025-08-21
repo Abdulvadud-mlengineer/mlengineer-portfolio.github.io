@@ -1,280 +1,259 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ML Портфолио | Abdulvadud</title>
-  <style>
-    :root {
-      --bg-color: #121212;
-      --surface-color: #1e1e1e;
-      --primary-color: #03dac6;
-      --secondary-color: #bb86fc;
-      --text-primary: rgba(255, 255, 255, 0.87);
-      --text-secondary: rgba(255, 255, 255, 0.6);
-    }
-    
-    body {
-      font-family: 'Inter', 'Segoe UI', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-primary);
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-    
-    header {
-      margin-bottom: 3rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      animation: fadeIn 1s ease-out;
-    }
-    
-    h1 {
-      font-size: 3rem;
-      margin: 0;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      font-weight: 800;
-    }
-    
-    .subtitle {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      margin-top: 0.5rem;
-    }
-    
-    .career-path {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.8rem 1.2rem;
-      background-color: rgba(187, 134, 252, 0.1);
-      border: 1px solid rgba(187, 134, 252, 0.2);
-      border-radius: 8px;
-      color: var(--secondary-color);
-      font-size: 1rem;
-      font-weight: 500;
-    }
-    
-    h2 {
-      font-size: 1.8rem;
-      margin-top: 2.5rem;
-      color: var(--primary-color);
-      position: relative;
-      display: inline-block;
-    }
-    
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 50%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary-color), transparent);
-      border-radius: 3px;
-    }
-    
-    .card {
-      background-color: var(--surface-color);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-    }
-    
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    
-    .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      padding: 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .project-card:hover {
-      border-color: var(--primary-color);
-      transform: translateY(-3px);
-    }
-    
-    .project-title {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary-color);
-    }
-    
-    .project-description {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      margin-bottom: 1.2rem;
-    }
-    
-    .project-btn {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      color: black;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: transform 0.2s ease;
-    }
-    
-    .project-btn:hover {
-      transform: translateY(-2px);
-    }
-    
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-    
-    .skill {
-      background: rgba(187, 134, 252, 0.1);
-      color: var(--secondary-color);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      border: 1px solid rgba(187, 134, 252, 0.3);
-    }
-    
-    .github-link {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.8rem 1.5rem;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      color: black;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 15px rgba(3, 218, 198, 0.3);
-    }
-    
-    .github-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(3, 218, 198, 0.4);
-    }
-    
-    .contact-links {
-      margin-top: 1.5rem;
-    }
-    
-    .contact-link {
-      display: inline-block;
-      margin-right: 1.5rem;
-      color: var(--secondary-color);
-      text-decoration: none;
-      transition: opacity 0.3s ease;
-    }
-    
-    .contact-link:hover {
-      opacity: 0.8;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    footer {
-      margin-top: 4rem;
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      padding: 1.5rem 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ML Портфолио | Abdulvadud</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-color: rgba(0,0,0,0.95);
+    --glass-color: rgba(30,30,30,0.6);
+    --accent-color: #03dac6;
+    --secondary-accent: #bb86fc;
+    --text-bright: rgba(255,255,255,1);
+    --text-secondary: rgba(255,255,255,0.6);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-bright);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    backdrop-filter: blur(10px);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 900px;
+    padding: 2rem;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent));
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  }
+
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+    font-weight: 700;
+  }
+
+  .career-path {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  .card {
+    backdrop-filter: blur(15px);
+    background: var(--glass-color);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 45px rgba(0,0,0,0.8);
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+  }
+
+  .project-title {
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-description {
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .project-btn {
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent));
+    border-radius: 12px;
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block;
+  }
+
+  .project-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .skill {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .contact-links a {
+    color: #fff;
+    font-weight: 700;
+    margin-right: 1.5rem;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .contact-links a:hover {
+    color: var(--accent-color);
+  }
+
+  .github-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 1.6rem;
+    font-weight: 700;
+    border-radius: 30px;
+    text-decoration: none;
+    background: linear-gradient(45deg,var(--accent-color),var(--secondary-accent));
+    color: #000;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .github-link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  }
+
+  footer {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-top: 3rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-weight: 600;
+  }
+
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Assalamu aleykum! Я Abdulvadud</h1>
-      <p class="subtitle">Начинающий ML-инженер, превращающий данные в решения</p>
-      <div class="career-path">Python → Data Analyst → Data Scientist Jr → Machine Learning Engineer</div>
-    </header>
-    
-    <div class="card">
-      <h2>📁 Мои проекты</h2>
-      <div class="project-grid">
-        <!-- Проект 1 - Классификация ирисов -->
-        <div class="project-card">
-          <h3 class="project-title">Классификация ирисов</h3>
-          <p class="project-description">ML-модель для определения вида цветка по параметрам с точностью 96-100%</p>
-          <a href="https://github.com/Abdulvadud-MLEngineer/iris-classification-ml" class="project-btn">Посмотреть код</a>
-        </div>
-        
-        <!-- Проект 2 - Пустой (будет добавлен позже) -->
-        <div class="project-card">
-          <h3 class="project-title">Предсказание цен на дома</h3>
-          <p class="project-description">Регрессионная модель для оценки стоимости недвижимости (в разработке)</p>
-          <a href="https://github.com/Abdulvadud-MLEngineer/house-price-prediction" class="project-btn">Скоро</a>
-        </div>
-        
-        <!-- Проект 3 - Пустой (будет добавлен позже) -->
-        <div class="project-card">
-          <h3 class="project-title">Детектор спама</h3>
-          <p class="project-description">NLP-модель для классификации SMS (в разработке)</p>
-          <a href="https://github.com/Abdulvadud-MLEngineer/spam-sms-detector" class="project-btn">Скоро</a>
-        </div>
+<div class="container">
+  <header>
+    <h1>Assalamu aleykum! Я Abdulvadud</h1>
+    <p class="subtitle">Начинающий ML-инженер, превращающий данные в решения</p>
+    <div class="career-path">Python → Data Analyst → Data Scientist Jr → Machine Learning Engineer</div>
+  </header>
+
+  <div class="card">
+    <h2>📁 Мои проекты</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3 class="project-title">Классификация ирисов</h3>
+        <p class="project-description">ML-модель для определения вида цветка по параметрам с точностью 96-100%</p>
+        <a href="#" class="project-btn">Посмотреть код</a>
+      </div>
+      <div class="project-card">
+        <h3 class="project-title">Предсказание цен на дома</h3>
+        <p class="project-description">Регрессионная модель для оценки стоимости недвижимости (в разработке)</p>
+        <a href="#" class="project-btn">Скоро</a>
+      </div>
+      <div class="project-card">
+        <h3 class="project-title">Детектор спама</h3>
+        <p class="project-description">NLP-модель для классификации SMS (в разработке)</p>
+        <a href="#" class="project-btn">Скоро</a>
       </div>
     </div>
-    
-    <div class="card">
-      <h2>🧠 Технологии</h2>
-      <div class="skills">
-        <span class="skill">Python</span>
-        <span class="skill">Pandas</span>
-        <span class="skill">NumPy</span>
-        <span class="skill">Scikit-learn</span>
-        <span class="skill">Matplotlib</span>
-        <span class="skill">Seaborn</span>
-        <span class="skill">Jupyter</span>
-        <span class="skill">Git</span>
-      </div>
-    </div>
-    
-    <div class="card">
-      <h2>📬 Контакты</h2>
-      <p>Свяжитесь со мной через удобную для вас платформу:</p>
-      <div class="contact-links">
-        <a href="https://t.me/theabdulvadud" target="_blank" class="contact-link">Telegram</a>
-        <a href="https://instagram.com/theabdulvadud" target="_blank" class="contact-link">Instagram</a>
-        <a href="https://github.com/Abdulvadud-MLEngineer" target="_blank" class="contact-link">GitHub</a>
-      </div>
-    </div>
-    
-    <a href="https://github.com/Abdulvadud-MLEngineer" target="_blank" class="github-link">
-      Следить за прогрессом на GitHub
-    </a>
-    
-    <footer>
-      © 2023 Abdulvadud | Machine Learning Portfolio
-    </footer>
   </div>
+
+  <div class="card">
+    <h2>🧠 Технологии</h2>
+    <div class="skills">
+      <span class="skill">Python</span>
+      <span class="skill">Pandas</span>
+      <span class="skill">NumPy</span>
+      <span class="skill">Scikit-learn</span>
+      <span class="skill">Matplotlib</span>
+      <span class="skill">Seaborn</span>
+      <span class="skill">Jupyter</span>
+      <span class="skill">Git</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📬 Контакты</h2>
+    <div class="contact-links">
+      <a href="#">Telegram</a>
+      <a href="#">Instagram</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+
+  <a href="#" class="github-link">Следить за прогрессом на GitHub</a>
+
+  <footer>© 2023 Abdulvadud | Machine Learning Portfolio</footer>
+</div>
 </body>
 </html>
